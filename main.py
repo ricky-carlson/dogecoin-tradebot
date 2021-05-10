@@ -22,8 +22,8 @@ while i < 2:
         i += 1
 
 #Calculates change of Nth + 1 price from Nth price 
-for i in range(len(performance_price)):
-    if (i + 1) < len(performance_price):
-        price_change[round(performance_price[i + 1] - performance_price[i], 5)] = time_price[i]
+for x in range(len(performance_price)):
+    if (x + 1) < len(performance_price):
+        price_change[round(performance_price[x + 1] - performance_price[x], 5)] = time_price[x]
     print("Not enough data to calculate change!")
 print(price_change)
