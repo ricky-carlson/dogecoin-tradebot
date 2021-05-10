@@ -4,7 +4,7 @@ from functions import get_price
 
 performance_price = []
 
-#Loop that gets market data every N minutes for X coin
+#Loop that gets 'live' market data every N minutes for X coin
 i = 0
 while i < 2:
     performance_price.append(get_price("DOGE-USD"))
