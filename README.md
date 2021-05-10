@@ -12,6 +12,8 @@ Trading bot will take several inputs to determine whether or not a trade should 
 
   - !Sentiment_Score! will be created using both inputs described above, the higher the score the more viable a trade.
     * Ex: Elevated social media activity paired with strong relative price performance would garner a high !Sentiment_Score!
+    * Ex: Reversal trade - Low !Sentiment_Score! could be followed by high !Sentiment_Score! and vice versa.
+    * Buy while !Sentiment_Score! is low and sell when !Sentiment_Score! is high
 
   - Trade levels determined using price performance data to establish upper and lower levels
     * Upper and lower levels established using 1 or 2 standard deviations above and below relative average price
