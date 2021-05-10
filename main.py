@@ -20,7 +20,6 @@ while i < 2:
         i += 1
     else:
         i += 1
-print(performance_price, time_price)
 
 #Calculates change of Nth + 1 price from Nth price 
 for i in range(len(performance_price)):
