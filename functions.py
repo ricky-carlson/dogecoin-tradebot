@@ -1,5 +1,6 @@
 import yfinance as yf
 
+#Pulls pricing information from Yahoo Finance using the yfinance library
 def get_price(coin):
     coin = yf.download(coin, period="1d", interval="1m")
 
