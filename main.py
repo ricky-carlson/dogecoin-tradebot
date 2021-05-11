@@ -1,4 +1,5 @@
 import time
+import numpy as np
 from datetime import datetime
 from functions import get_price
 
@@ -22,12 +23,12 @@ while i < 5:
         i += 1
     else:
         i += 1
-print(performance_price, time_price)
 
 #Calculates % change of Nth + 1 price from Nth price
 for x in range(len(performance_price)):
     if (x + 1) < len(performance_price):
         price_change[round((performance_price[x + 1] - performance_price[x])/performance_price[x], 5)] = time_interval
-        print(price_change)
     else:
         print("Not enough data to calculate change!")
+print("Process complete!")
+print(np.average(performance_price))
