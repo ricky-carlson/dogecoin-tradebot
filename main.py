@@ -10,14 +10,14 @@ time_interval = '1m'
 
 #Loop that gets market data every N minutes for X coin
 i = 0
-while i < 2:
+while i < 5:
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
 
     time_price.append(current_time)
     performance_price.append(float(get_price("DOGE-USD")))
 
-    if len(performance_price) < 2:
+    if len(performance_price) < 5:
         time.sleep(60)
         i += 1
     else:
