@@ -7,8 +7,6 @@ performance_price = []
 time_price = []
 price_change = {}
 
-time_interval = '1m'
-
 #Loop that gets market data every N minutes for X coin
 i = 0
 while i < 5:
@@ -27,8 +25,7 @@ while i < 5:
 #Calculates % change of Nth + 1 price from Nth price
 for x in range(len(performance_price)):
     if (x + 1) < len(performance_price):
-        price_change[round((performance_price[x + 1] - performance_price[x])/performance_price[x], 5)] = time_interval
+        price_change[round((performance_price[x + 1] - performance_price[x])/performance_price[x], 5)] = time_price[x]
     else:
         print("Not enough data to calculate change!")
 print("Process complete!")
-print(np.average(performance_price))
