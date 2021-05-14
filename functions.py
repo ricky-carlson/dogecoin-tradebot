@@ -27,7 +27,8 @@ def market_data(price, current_time, loop):
         else:
             i += 1
 
+#Calculates price change between every interval period
 def price_change(price, current_time, change):
     for x in range(len(price)):
         if (x + 1) < len(price):
-            change[round((price[x + 1] - price[x])/price[x], 5)] = current_time[x+1]
+            change[round((price[x + 1] - price[x])/price[x], 5)] = current_time[x + 1]
