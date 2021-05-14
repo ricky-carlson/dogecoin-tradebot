@@ -1,31 +1,14 @@
-import time
 import numpy as np
-from datetime import datetime
-from functions import get_price
+from functions import get_price, market_data, price_change
 
 performance_price = []
 time_price = []
-price_change = {}
+change_price = {}
 
-#Loop that gets market data every N minutes for X coin
-i = 0
-while i < 5:
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
+#Sets the amount of times to loop the live price puller
+loop_length = 2
 
-    time_price.append(current_time)
-    performance_price.append(float(get_price("DOGE-USD")))
-
-    if len(performance_price) < 5:
-        time.sleep(60)
-        i += 1
-    else:
-        i += 1
-
-#Calculates % change of Nth + 1 price from Nth price
-for x in range(len(performance_price)):
-    if (x + 1) < len(performance_price):
-        price_change[round((performance_price[x + 1] - performance_price[x])/performance_price[x], 5)] = time_price[x]
-    else:
-        print("Not enough data to calculate change!")
-print("Process complete!")
+#Gets market data every N minutes for X coin
+market_data(performance_price, time_price, loop_length)
+#Gets price change during every interval
+price_change(performance_price, time_price, change_price)
