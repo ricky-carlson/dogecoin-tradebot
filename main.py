@@ -1,4 +1,4 @@
-from functions import get_price, market_data, price_change
+from functions import get_price, market_data, price_change, historic_data
 
 performance_price = []
 time_price = []
