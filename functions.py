@@ -1,5 +1,6 @@
 import time
 import yfinance as yf
+import matplotlib.pyplot as plt
 from datetime import datetime
 
 #Pulls pricing information from Yahoo Finance using the yfinance library
