@@ -1,6 +1,7 @@
 import time
 import yfinance as yf
 import matplotlib.pyplot as plt
+import pandas as pd
 from datetime import datetime
 
 #Pulls pricing information from Yahoo Finance using the yfinance library
@@ -44,6 +45,13 @@ def price_change(price, current_time, change):
             change[round((price[x + 1] - price[x])/price[x], 5)] = current_time[x + 1]
 
 #Plots price information
-def price_chart(ticker):
-    plt.plot(ticker, color="Black")
+#Prints price chart of ticker
+#Accepts historic ticker pricing information
+#Optional moving average argument, must be of type INT
+def price_chart(ticker_data, moving_average = False):
+    df = pd.DataFrame(ticker_data)
+    plt.plot(df, color="Black")
+    if (moving_average != False):
+        sma = df.rolling(moving_average).mean()
+        plt.plot(sma, color="Blue")
     plt.show()
