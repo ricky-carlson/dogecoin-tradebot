@@ -53,4 +53,7 @@ def price_chart(ticker_data, moving_average = False):
     if (moving_average != False):
         sma = df.rolling(moving_average).mean()
         plt.plot(sma, color="Blue")
+        plt.legend(["Price Performance", f"{moving_average} Day Simple Moving Average"])
+    else:
+        plt.legend(["Price Performance"])
     plt.show()
