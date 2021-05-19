@@ -44,7 +44,6 @@ def price_change(price, current_time, change):
         if (x + 1) < len(price):
             change[round((price[x + 1] - price[x])/price[x], 5)] = current_time[x + 1]
 
-#Plots price information
 #Prints price chart of ticker
 #Accepts historic ticker pricing information
 #Optional moving average argument, must be of type INT
