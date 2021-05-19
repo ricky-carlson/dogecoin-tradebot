@@ -22,8 +22,8 @@ def historic_data(ticker, period, interval):
 
     return(round(ticker_price, 2))
 
-#Gets market data every N minutes for X coin
-def market_data(price, current_time, loop):
+#Gets live market data every N minutes for X coin
+def live_data(price, current_time, loop):
     i = 0
     while i < loop:
         now = datetime.now()
