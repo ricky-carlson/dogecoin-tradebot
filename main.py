@@ -7,8 +7,15 @@ change_price = {}
 #Sets the amount of times to loop the live price puller
 loop_length = 2
 
-#Gets market data every N minutes for X coin
-live_data(performance_price, time_price, loop_length)
+exchange_fee = .002 # % Fee charged to buy/sell on specified exchange
 
-#Gets price change during every interval
-price_change(performance_price, time_price, change_price)
+
+current_price = get_price("DOGE-USD")
+
+purchase_price = round(current_price * (1 + exchange_fee), 6)
+transaction_cost = round(purchase_price - current_price, 6)
+breakeven_price = round(purchase_price + (purchase_price * exchange_fee), 6)
+breakeven_percent = (breakeven_price - current_price)/current_price
+
+print(f"Current price: ${current_price}\nPurchase price: ${purchase_price}\nBreakeven price: ${breakeven_price}\nBreakeven percent: {round(breakeven_percent*100, 2)}%")
+
