@@ -13,7 +13,6 @@ i = False
 while i == False:
     try:
         entry_price = float(input("Enter entry price: "))
-        i = True
         break
     except:
         print("Your input is not valid, please re-try")
