@@ -41,11 +41,9 @@ target_profit = round((target_price - entry_price) * shares_owned, 2)
 
 #Current position profit or loss
 p_l = round(((stock_price * shares_owned) - capital_required))
-if p_l < 0:
-    p_l = f"({abs(p_l)})"
 
 print(f"\nStock: {ticker}\nCapital required: ${capital_required}\nShares owned: {shares_owned}\nStop loss price: ${stop_loss_price}\nTarget price: ${target_price}"
-      f"\n\nMax loss: ${max_loss}\nProfit at Target Price: ${target_profit}\n\nCurrent profit/(loss): ${p_l}"
+      f"\n\nMax loss: ${max_loss}\nProfit at Target Price: ${target_profit}\n\nCurrent profit/loss: ${p_l}"
 )
 
 #chart_price(historic_data(ticker, "ytd", "5d"), target_price, stop_loss_price)
