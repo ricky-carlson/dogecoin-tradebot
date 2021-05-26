@@ -6,8 +6,13 @@ ticker = "sq".upper()
 stock_price = get_price(ticker)
 stop_loss = .025 #as percent
 entry_percent_limit = .15 #as percent
+trade_size = .05 #Percent of total capital per trade
 
+account_capital = 1000 #total trading capital available 
+capital_per_trade = round(account_capital * trade_size, 0) #Amount of capital used per trade
 shares_owned = 2 #quantity of shares owned
+
+print(capital_per_trade)
 
 i = False
 while i == False:
@@ -33,4 +38,5 @@ print(f"\nStock: {ticker}\nCapital required: ${capital_required}\nStop loss pric
 
 
 chart_price(historic_data(ticker, "ytd", "5d"), target_price, stop_loss_price)
+
 
