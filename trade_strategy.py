@@ -7,7 +7,7 @@ entry_percent_limit = .15 #as percent
 
 #Trading Account Parameters
 account_capital = 1000 #total trading capital available
-trade_size = .20 #Percent of total capital per trade
+trade_size = .45 #Percent of total capital per trade
 capital_per_trade = round(account_capital * trade_size, 0) #Amount of capital used per trade
 
 ticker = "fubo".upper()
@@ -37,8 +37,15 @@ shares_owned = math.floor((capital_per_trade / entry_price))
 #Trade requirements & loss/profit
 capital_required = round(entry_price * shares_owned, 2)
 max_loss = round((stop_loss_price - entry_price) * shares_owned, 2)
-profit = round((target_price - entry_price) * shares_owned, 2)
+target_profit = round((target_price - entry_price) * shares_owned, 2)
 
-print(f"\nStock: {ticker}\nCapital required: ${capital_required}\nStop loss price: ${stop_loss_price}\nTarget price: ${target_price}\n\nMax loss: ${max_loss}\nProfit at Target Price: ${profit}")
+#Current position profit or loss
+p_l = round(((stock_price * shares_owned) - capital_required))
+if p_l < 0:
+    p_l = f"({abs(p_l)})"
+
+print(f"\nStock: {ticker}\nCapital required: ${capital_required}\nShares owned: {shares_owned}\nStop loss price: ${stop_loss_price}\nTarget price: ${target_price}"
+      f"\n\nMax loss: ${max_loss}\nProfit at Target Price: ${target_profit}\n\nCurrent profit/(loss): ${p_l}"
+      )
 
 #chart_price(historic_data(ticker, "ytd", "5d"), target_price, stop_loss_price)
