@@ -2,7 +2,6 @@ import yfinance as yf
 import math
 from functions import get_price, historic_data, price_change, chart_price
 
-
 stop_loss = .025 #as percent
 entry_percent_limit = .15 #as percent
 
@@ -20,7 +19,6 @@ while i == False:
         break
     except:
         print("Your input is not valid, please re-try!")
-
 
 if (entry_price > stock_price * (1 + entry_percent_limit)) or (entry_price < stock_price * (1 - entry_percent_limit)):
     print("Not a valid entry point!")
